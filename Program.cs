@@ -39,13 +39,6 @@ namespace Printer
 
             Console.WriteLine($"Время занятия: </br> {date}");
 
-            //new RenderToPdf().RenderHtml(JSONObj.data.staff.ToString(), JSONObj.data.client.ToString(), date);
-
-            //PointF firstLocation = new PointF(43f, 50f);
-            //PointF secondLocation = new PointF(85f, 125f);
-            //PointF thirdLocation = new PointF(50f, 160f);
-            //PointF fourthLocation = new PointF(47f, 230f);
-
             PointF firstLocation = new PointF(220f, 230f);
             PointF secondLocation = new PointF(360f, 550f);
             PointF thirdLocation = new PointF(220f, 680f);
@@ -66,9 +59,7 @@ namespace Printer
             }
 
             bitmap.Save("pTalon_big.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-
         }
-
     }
 
     class ContentData
@@ -129,37 +120,6 @@ namespace Printer
 
             // Draw image to screen.
             ev.Graphics.DrawImage(newImage, ulCorner);
-
-            //System.Drawing.Image img = System.Drawing.Image.FromFile(@"pTalon.jpg");
-            //Point loc = new Point(100, 100);
-            //ev.Graphics.DrawImage(img, loc);
-
-            //float linesPerPage = 0;
-            //float yPos = 0;
-            //int count = 0;
-            //float leftMargin = ev.MarginBounds.Left;
-            //float topMargin = ev.MarginBounds.Top;
-            //String line = null;
-
-            //// Calculate the number of lines per page.
-            //linesPerPage = ev.MarginBounds.Height /
-            //   printFont.GetHeight(ev.Graphics);
-
-            //// Iterate over the file, printing each line.
-            //while (count < linesPerPage &&
-            //   ((line = streamToPrint.ReadLine()) != null))
-            //{
-            //    yPos = topMargin + (count * printFont.GetHeight(ev.Graphics));
-            //    ev.Graphics.DrawString(line, printFont, Brushes.Black,
-            //       leftMargin, yPos, new StringFormat());
-            //    count++;
-            //}
-
-            //// If more lines exist, print another page.
-            //if (line != null)
-            //    ev.HasMorePages = true;
-            //else
-            //    ev.HasMorePages = false;
         }
 
         // Print the file.
@@ -186,29 +146,5 @@ namespace Printer
                 Console.WriteLine(ex.Message);
             }
         }
-  
     }
-
-    //class RenderToPdf
-    //{
-    //    IronPdf.HtmlToPdf Renderer = new IronPdf.HtmlToPdf();
-
-
-    //    public void RenderHtml (string staff, string client, string date)
-    //    {
-
-    //        Renderer.PrintOptions.SetCustomPaperSizeInInches(5.6, 3.9);
-    //        Renderer.PrintOptions.PrintHtmlBackgrounds = true;
-
-    //        PdfDocument file = Renderer.RenderHtmlAsPdf(
-    //            $@"<div style='max-width: 7.2cm; max-height: 10cm; border: 1px #999 solid; font: 8.5px arial, sans-serif; text-align: center'>
-    //            <p>{staff}</br></br>{client}</br></br>Время занятия: </br>{date}</p></div>"
-    //            );
-
-    //        file.Print();
-    //    }
-
-
-    //}
-
 }
